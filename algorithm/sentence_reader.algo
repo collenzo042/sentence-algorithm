@@ -1,0 +1,31 @@
+ALGORITHM sentence_reader
+VAR
+   char_Count : INTEGER :=0;
+   word_Count : INTEGER :=0;
+   vowel_Count : INTEGER :=0;
+    ch : CHARACTER;
+
+BEGIN
+    READ(ch);
+    WHILE ch <> '.' DO
+        char_Count := char_Count + 1;
+    
+    IF ch = ' ' THEN
+        word_Count := word_Count + 1;
+        END_IF;
+
+    IF ch = 'a' OR ch = 'e' OR ch = 'i' OR ch = 'o' OR ch = 'u'
+        OR ch = 'A' OR ch = 'E' OR ch = 'I' OR ch = 'O' OR ch = 'U' THEN
+        vowel_Count := vowel_Count + 1;
+    END_IF;
+
+    READ(ch);
+    END_WHILE;
+
+    char_Count := char_Count + 1; // count the full stop
+    word_Count := word_Count +1; // count the last word
+
+    WRITE("Number of characters: ", char_Count);
+    WRITE("Number of words: ", word_Count);
+    WRITE("Number of vowels ", vowel_Count);
+END
